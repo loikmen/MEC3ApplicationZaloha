@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodel="clr-namespace:MEC3App.ViewModel" x:DataType="viewmodel:NewsDetailViewModel"
+             x:Class="MEC3App.Views.NewsDetailPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem   IconImageSource="house.png"   Clicked="returnHome"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid Padding="20,10" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+      
+        <ScrollView Grid.Row="0" HorizontalOptions="FillAndExpand">
+            <Grid RowSpacing="0" HorizontalOptions="FillAndExpand" Margin="0, 0, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout Spacing="0" HorizontalOptions="Center" VerticalOptions="Start"></StackLayout>
+                <CarouselView Grid.Row="1" ItemsSource="{Binding NewsCard}" HeightRequest="80" HorizontalOptions="FillAndExpand" 
+                           IsScrollAnimated="True" IsSwipeEnabled="True">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding NewsCard.Name}" TextColor="#262626" FontSize="30"  
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+              
+                <StackLayout Grid.Row="2" Spacing="20" HorizontalOptions="FillAndExpand">
+
+
+                    <Image Source="{Binding NewsCard.Image}"></Image>
+
+
+                    <Label Text="{Binding NewsCard.Perex}" TextColor="#262626" FontSize="22" Margin="0, 0, 0, 0"
+                                       HorizontalOptions="Start" />
+
+
+                    <Label Text="{Binding NewsCard.Content}" TextColor="Black"  FontSize="14" Margin="0"
+                                       HorizontalOptions="Center" Padding="0,0"/>
+                  
+
+                    <!--
+                    <Grid Padding="0,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+                        <Button Text="Open PDF" TextColor="Black" Padding="20,5" HeightRequest="50" CornerRadius="25" 
+                            BackgroundColor="#F9B522" HorizontalOptions="Center" FontFamily="ThemeFont" Command="{Binding OpenPdfFileCommand}"></Button>
+
+                        <Button Text="Download PDF" TextColor="Black" Padding="20,5" HeightRequest="50" CornerRadius="25" 
+                            BackgroundColor="#F9B522" HorizontalOptions="End" FontFamily="ThemeFont" Command="{Binding DownloadPdfFileCommand} "></Button>
+
+
+                    </Grid>
+
+                    <WebView Source="https://www.youtube.com/watch?v=36YnV9STBqc" 
+                   HorizontalOptions="Fill" VerticalOptions="Fill" HeightRequest="218"   
+                   />
+
+
+                    <Button  TextColor="white" Padding="20,5" HeightRequest="47" WidthRequest="155" VerticalOptions="Start"
+                            BackgroundColor="Transparent"  Command="{Binding OpenWebCommand2}" FontFamily="ThemeFont" HorizontalOptions="Start">
+
+
+
+                    </Button>
+ -->
+
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

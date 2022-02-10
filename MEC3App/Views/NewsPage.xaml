@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm1="clr-namespace:MEC3App.ViewModel"
+             x:Class="MEC3App.Views.NewsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem   IconImageSource="house.png"   Clicked="returnHome"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.BindingContext>
+        <vm1:NewsViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+
+        <Grid Padding="30" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout>
+
+
+
+                <Label TextColor="#262626"  Margin="0,-10" Text="Novinky" FontSize="40"  HorizontalOptions="Center" >
+
+                </Label>
+
+                <BoxView 
+                   HeightRequest="1"
+                   Color="Wheat"
+                   Margin ="0, 4, 0, 0"/>
+
+
+                <Grid Padding="0,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout Spacing="0" HorizontalOptions="Center" VerticalOptions="Center">
+                    </StackLayout>
+
+                </Grid>
+
+                <CollectionView  x:Name="collectionView" Margin="0,0,0,0" Grid.Row="1" ItemsSource="{Binding NewsCards}" SelectionMode="Single" 
+                        SelectedItem="{Binding SelectedCard}" VerticalScrollBarVisibility="Never" 
+                        SelectionChangedCommand="{Binding SelectionCommand}" >
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout  Orientation="Vertical" VerticalItemSpacing="10" HorizontalItemSpacing="0" Span="1" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame OutlineColor="Black" Margin="0" Padding="1,1,1,0" BackgroundColor="Wheat">
+                                <Grid  Padding="0,0,0,0" BackgroundColor="Transparent"  HorizontalOptions="Start" >
+
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image  Grid.Column="0" Source="{Binding Image}" Margin="0" WidthRequest="149"  
+                               HorizontalOptions="Start" VerticalOptions="Start"/>
+
+                                    <Label  Grid.Column="1" Text="{Binding Name}" TextColor="#262626"  
+                               VerticalOptions="Start" HorizontalOptions="Center" FontSize="18"  Margin="0,5,0,0"/>
+
+                                    <Label Grid.Column="1" Text="{Binding Perex}" TextColor="Black"  
+                               VerticalOptions="End" HorizontalOptions="End" FontSize="11"  Margin="5"/>
+
+                                </Grid>
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </StackLayout>
+
+        </Grid>
+
+    </ScrollView>
+
+</ContentPage>

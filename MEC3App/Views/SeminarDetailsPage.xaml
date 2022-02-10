@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEC3App.Views.SeminarDetailsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem   IconImageSource="house.png"   Clicked="returnHome"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid Padding="30" BackgroundColor="White" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Padding="0,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Spacing="0">
+
+                <Grid Padding="0,-10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+                </Grid>
+
+               
+
+            </StackLayout>
+        </Grid>
+        <ScrollView Grid.Row="0" HorizontalOptions="FillAndExpand">
+            <Grid RowSpacing="0" HorizontalOptions="FillAndExpand" Margin="0, 0, 0, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout Spacing="0" HorizontalOptions="Center" VerticalOptions="Start"></StackLayout>
+                <CarouselView Grid.Row="1" ItemsSource="{Binding SeminarCards}" HeightRequest="60" HorizontalOptions="FillAndExpand" 
+                          CurrentItem="{Binding SelectedCard}" IsScrollAnimated="True" IsSwipeEnabled="True">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Name}" TextColor="#262626" FontSize="40" FontFamily="ThemeFont" 
+                                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <ImageButton Grid.Row="1" Source="left.png" Margin="15,50,0,0" Aspect="Fill" HeightRequest="18" WidthRequest="18" HorizontalOptions="Start" 
+                         VerticalOptions="Center" BackgroundColor="Transparent" Command="{Binding ChangePositionCommand}" CommandParameter="L"/>
+                <ImageButton Grid.Row="1" Source="right.png" Margin="0,50,15,0" Aspect="Fill" HeightRequest="18" WidthRequest="18" HorizontalOptions="End" 
+                         VerticalOptions="Center" BackgroundColor="Transparent" Command="{Binding ChangePositionCommand}" CommandParameter="R"/>
+                <StackLayout Grid.Row="2" Spacing="20" HorizontalOptions="FillAndExpand">
+                    <WebView Source="{Binding SelectedCard.Video}" HorizontalOptions="Fill" VerticalOptions="Fill" HeightRequest="218"></WebView>
+
+
+
+                    <Label Text="{Binding SelectedCard.Date}" TextColor="#262626" FontAttributes="Bold" FontSize="20" 
+                                       HorizontalOptions="Center"/>
+
+                    <Label Text="{Binding SelectedCard.Details}" TextColor="Black" FontSize="14" Margin="0, 0, 0, 0"
+                                       HorizontalOptions="Center"/>
+
+
+                    <!--
+                    <Grid Padding="0,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+
+                        <Button Text="Open PDF" TextColor="Black" Padding="20,5" HeightRequest="50" CornerRadius="25" 
+                            BackgroundColor="#F9B522" HorizontalOptions="Center" FontFamily="ThemeFont" Command="{Binding OpenPdfFileCommand}"></Button>
+
+                        <Button Text="Download PDF" TextColor="Black" Padding="20,5" HeightRequest="50" CornerRadius="25" 
+                            BackgroundColor="#F9B522" HorizontalOptions="End" FontFamily="ThemeFont" Command="{Binding DownloadPdfFileCommand} "></Button>
+
+
+                    </Grid>
+
+                    <WebView Source="https://www.youtube.com/watch?v=36YnV9STBqc" 
+                   HorizontalOptions="Fill" VerticalOptions="Fill" HeightRequest="218"   
+                   />
+
+
+                    <Button  TextColor="white" Padding="20,5" HeightRequest="47" WidthRequest="155" VerticalOptions="Start"
+                            BackgroundColor="Transparent"  Command="{Binding OpenWebCommand2}" FontFamily="ThemeFont" HorizontalOptions="Start">
+
+
+
+                    </Button>
+ -->
+
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

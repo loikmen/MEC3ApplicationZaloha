@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MEC3AppSample.Views.Page1">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem   IconImageSource="house.png"   Clicked="returnHome"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+
+        <StackLayout BackgroundColor="White">
+
+            <Image Margin="0,30,0,0" Source="mec3logo.png" HorizontalOptions="Center"  WidthRequest="190"   VerticalOptions="Center"/>
+            <Label Text="Přihlášení:" HorizontalOptions="Start" Margin="45,30,0,0" FontSize="20">
+            </Label>
+
+            <Entry x:Name="nameEntry2" VerticalOptions="Start"
+                Placeholder="uživatelské jméno" Margin="40,15,40,0"  />
+            <Entry x:Name="nameEntry3" VerticalOptions="Start" IsPassword="True"
+                Placeholder="heslo" Margin="40,30,40,0"  />
+            <Button Text="Přihlásit se" BorderColor="#262626" BorderWidth="1" Clicked="LoginCheck" Margin="40,30,40,0" BackgroundColor="#a3ae03" CornerRadius="60" TextColor="White"/>
+            <Label  Text="{Binding Password}" TextColor="Chocolate" FontFamily="ThemeFont" 
+                               VerticalOptions="Center" HorizontalOptions="Center" FontSize="20"/>
+
+
+
+
+
+        </StackLayout>
+
+
+
+
+
+
+    </ContentPage.Content>
+</ContentPage>
